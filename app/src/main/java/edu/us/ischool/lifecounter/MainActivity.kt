@@ -64,7 +64,7 @@ class MainActivity : AppCompatActivity() {
                         msg,
                         Snackbar.LENGTH_LONG
                     ).show()
-                    players[position].count = 0
+                    players[position].count = count
                 } else {
                     countText.text = count.toString()
                     players[position].count = count
@@ -83,7 +83,7 @@ class MainActivity : AppCompatActivity() {
                         msg,
                         Snackbar.LENGTH_LONG
                     ).show()
-                    players[position].count = 0
+                    players[position].count = count
                 } else {
                     countText.text = count.toString()
                     players[position].count = count
