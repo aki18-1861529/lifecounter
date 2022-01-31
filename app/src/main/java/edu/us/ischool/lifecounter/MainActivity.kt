@@ -3,7 +3,6 @@ package edu.us.ischool.lifecounter
 import android.app.Activity
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.os.PersistableBundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -16,10 +15,10 @@ class MainActivity : AppCompatActivity() {
     class Player(var name: String, var count: Int) : Serializable
 
     private var players: Array<Player> = arrayOf(
-        Player("Player 1", 0),
-        Player("Player 2", 0),
-        Player("Player 3", 0),
-        Player("Player 4", 0)
+        Player("Player 1", 20),
+        Player("Player 2", 20),
+        Player("Player 3", 20),
+        Player("Player 4", 20)
     )
 
     inner class PlayerAdapter(private val context: Activity, private val data: Array<Player>): ArrayAdapter<Player>(context, R.layout.list_item) {
@@ -57,7 +56,7 @@ class MainActivity : AppCompatActivity() {
                 var count: Int = countText.text.toString().toInt()
                 count -= 1
                 if (count <= 0) {
-                    countText.text = "0"
+                    countText.text = count.toString()
                     val pos: Int = position + 1
                     val msg = "Player $pos LOSES!"
                     Snackbar.make(
@@ -76,7 +75,7 @@ class MainActivity : AppCompatActivity() {
                 var count: Int = countText.text.toString().toInt()
                 count -= 5
                 if (count <= 0) {
-                    countText.text = "0"
+                    countText.text = count.toString()
                     val pos: Int = position + 1
                     val msg = "Player $pos LOSES!"
                     Snackbar.make(
